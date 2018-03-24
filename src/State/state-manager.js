@@ -8,7 +8,6 @@ export default class State {
 	_fireLength = new Rx.BehaviorSubject(3)
 
 	commentsConfig = Rx.Observable.create((observer) => {
-		console.log("combining latest")
 		let dispose = Rx.Observable.combineLatest(
 		this._facebookTokenSubject,
 		this._videoIdSubject,

@@ -17,7 +17,6 @@ export default class FireIndicator extends Component {
 		})
 		.subscribe({
 			next: (fire) => {
-				console.log("fire")
 				this.setState({
 					fireText: fire ? "fire" : ""
 				})
