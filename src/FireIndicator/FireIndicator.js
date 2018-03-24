@@ -1,12 +1,13 @@
 import Rx from 'rxjs';
 import React, { Component } from 'react';
 import { shouldFire } from '../CommentPuller/getComments';
+import './FireIndicator.css';
 
 export default class FireIndicator extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			fireText: "text"
+			fireText: ""
 		}
 	}
 	componentWillMount() {
