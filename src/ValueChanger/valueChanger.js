@@ -1,5 +1,5 @@
-import Rx from 'rxjs';
 import React, { Component } from 'react';
+import './valueChanger.css';
 
 export default class ValueChanger extends Component {
 
@@ -41,7 +41,7 @@ export default class ValueChanger extends Component {
 			</label>
 			<br/>
 			<label>
-				  Length of Fire:
+				  Length of Fire (in seconds):
 			<input type="number" placeholder={this.props.stateObj.fireLength} onChange={this.handleFireLength.bind(this)} />
 			</label>
 		</div>

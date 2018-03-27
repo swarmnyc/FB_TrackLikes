@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FacebookLogin from 'react-facebook-login';
-import State from '../State/state-manager';
 
 export function loginComponent(props) {
 	const responseParser = (response) => {
-		console.log(response)
 		if (response.accessToken && !response.error) {
 			props.accessTokenCallback(response.accessToken)
 		} else {
-			alert("There was an error logging in, if you have an ad block, try turning it off and trying again.")
+			alert("There was an error logging in, if you have an ad blocker, try turning it off and trying again.")
 		}
 	}
 	return (

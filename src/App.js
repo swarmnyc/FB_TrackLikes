@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import State from './State/state-manager';
-import rx from 'rxjs';
+import State from './State/stateManager';
 import { loginComponent } from './FacebookLogin/FacebookLogin';
 import FireIndicator from './FireIndicator/FireIndicator';
 import ValueChanger from './ValueChanger/valueChanger';
+
 class App extends Component {
 	stateObj = new State()
 
@@ -26,7 +25,7 @@ class App extends Component {
 
   render() {
 	  var self = this
-	  if (this.state.isLoggedIn == false) {
+	  if (this.state.isLoggedIn === false) {
 		  return (
 			loginComponent({accessTokenCallback: this.accessTokenSet.bind(self)})
 		  )

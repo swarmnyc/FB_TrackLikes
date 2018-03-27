@@ -1,4 +1,3 @@
-import Rx from 'rxjs';
 import React, { Component } from 'react';
 import { shouldFire } from '../CommentPuller/getComments';
 import './FireIndicator.css';
@@ -12,9 +11,7 @@ export default class FireIndicator extends Component {
 	}
 	componentWillMount() {
 		this.props.stateObj.commentsConfig
-		.flatMap((config) => {
-			return shouldFire(config)
-		})
+		.flatMap((config) => { return shouldFire(config) })
 		.subscribe({
 			next: (fire) => {
 				this.setState({

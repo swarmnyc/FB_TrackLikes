@@ -1,4 +1,5 @@
 import Rx from 'rxjs';
+import './stateManager.css';
 
 export default class State {
 	_facebookTokenSubject = new Rx.BehaviorSubject(null)
@@ -8,7 +9,7 @@ export default class State {
 	_fireLength = new Rx.BehaviorSubject(3)
 
 	commentsConfig = Rx.Observable.create((observer) => {
-		let dispose = Rx.Observable.combineLatest(
+		Rx.Observable.combineLatest(
 		this._facebookTokenSubject,
 		this._videoIdSubject,
 		this._messageMatch,
@@ -31,9 +32,6 @@ export default class State {
 	isLoggedIn = this._facebookTokenSubject
 		.map((value) => { return value ? true : false }) 
 
-	constructor() {
-		this._facebookTokenSubject.next(this.facebookToken)
-	}
 	setVideoId = (id) => {
 		this._videoIdSubject.next(id)
 	}

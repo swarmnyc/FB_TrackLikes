@@ -4,12 +4,14 @@ var getComments = (token, videoId) => {
 	return Rx.Observable.create((observer) => {
 		var source = new EventSource("https://streaming-graph.facebook.com/" + videoId + "/live_comments?access_token=" + token + "&comment_rate=one_hundred_per_second&fields=message");
 		source.onmessage = function(event) {
+			console.log(event)
 			const json = JSON.parse(event.data);
 			if (json.message) {
 				observer.next(json.message)
 			}	
 		}
 		source.onerror = function(error) {
+			console.log(error)
 			observer.error(error)
 		}
 		return function unsubscribe() {
