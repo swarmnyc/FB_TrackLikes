@@ -12,7 +12,7 @@ export function loginComponent(props) {
 	return (
       <div className="Login">
         <FacebookLogin
-    appId="631664410500749"
+    appId="2000860866898928"
     autoLoad={true}
     fields="name,email,picture"
     callback={responseParser} />

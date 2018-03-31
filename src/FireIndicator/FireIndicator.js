@@ -17,9 +17,6 @@ export default class FireIndicator extends Component {
 				this.setState({
 					fireText: fire ? "fire" : ""
 				})
-			},
-			error: (error) => {
-				alert("there was an error connecting to facebook with the provided information, check your video id and try again")
 			}
 		})
 	}

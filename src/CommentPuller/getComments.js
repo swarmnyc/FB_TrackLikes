@@ -31,6 +31,12 @@ var getComments = (token, videoId) => {
 var fireEvent = (config) => {
 	const lowercaseMatch = config.messageMatch.toLowerCase()
 	return getComments(config.token, config.videoId)
+		.catch((e) => { 
+			return Rx.Observable.create((observer) => { 
+				alert("there was an error connecting to facebook with the provided information, check your video id and try again. Make sure the video you selected is being streamed from a business/public account and not a personal account.")      	
+			  	observer.next("") 
+			}) 
+  		})
 		.scan((acc, message) => { return acc + ((message.toLowerCase().indexOf(lowercaseMatch) >= 0) ? 1 : 0) }, 0)
 		.filter((count) => { return count % config.messageCount == 0 && count != 0 })
 		.map((fire) => { return config.fireLength })
